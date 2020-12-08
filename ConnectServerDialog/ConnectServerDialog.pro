@@ -17,12 +17,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connect-server-dialog.cpp \
-    main.cpp \
-    widget.cpp
+    main.cpp
 
 HEADERS += \
-    connect-server-dialog.h \
-    widget.h
+    connect-server-dialog.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,12 +1,12 @@
 #include "connect-server-dialog.h"
-#include "widget.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    ConnectServerDialog w;
+    QString ip = "127.0.0.1";
+    ConnectServerLogin w(ip);
     w.show();
     return a.exec();
 }

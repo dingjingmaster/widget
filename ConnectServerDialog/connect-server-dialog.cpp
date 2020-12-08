@@ -1,5 +1,6 @@
 #include "connect-server-dialog.h"
 
+#include <QButtonGroup>
 #include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
@@ -61,4 +62,68 @@ ConnectServerDialog::~ConnectServerDialog()
 {
     delete m_remote_type_label;
     delete m_main_layout;
+}
+
+
+
+ConnectServerLogin::ConnectServerLogin(QString& remoteIP, QWidget *parent) : QWidget(parent)
+{
+    setFixedSize(m_widget_size);
+    setWindowIcon(QIcon::fromTheme("network-server"));
+    setWindowTitle(tr("The login user"));
+    m_main_layout = new QVBoxLayout(this);
+
+    m_tip                   = new QLabel;
+    m_tip->setText(QString("Please enter the %1's user name and password of the server.").arg(remoteIP));
+    m_main_layout->addWidget(m_tip);
+
+    m_usr_label             = new QLabel;
+    m_usr_btn_group         = new QVBoxLayout;
+    m_usr_btn_guest         = new QRadioButton;
+    m_usr_btn_usr           = new QRadioButton;
+    m_usr_layout            = new QHBoxLayout;
+
+    m_usr_label->setText(tr("User's identity"));
+    m_usr_btn_guest->setText(tr("guest"));
+    m_usr_btn_usr->setText(tr("Registered users"));
+    m_usr_btn_group->addWidget(m_usr_btn_guest);
+    m_usr_btn_group->addWidget(m_usr_btn_usr);
+    m_usr_layout->addWidget(m_usr_label);
+    m_usr_layout->addLayout(m_usr_btn_group);
+    m_usr_label->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_usr_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_main_layout->addLayout(m_usr_layout);
+
+    m_reg_usr_name_label    = new QLabel;
+    m_reg_usr_passwd_label  = new QLabel;
+    m_reg_usr_name_editor   = new QLineEdit;
+    m_reg_usr_passwd_editor = new QLineEdit;
+    m_reg_usr_combox        = new QCheckBox;
+    m_reg_usr_layout        = new QGridLayout;
+
+    m_reg_usr_name_label->setText(tr("name"));
+    m_reg_usr_passwd_label->setText(tr("password"));
+    m_reg_usr_combox->setText(tr("Remember the password"));
+    m_reg_usr_layout->addWidget(m_reg_usr_name_label, 0, 0);
+    m_reg_usr_layout->addWidget(m_reg_usr_name_editor, 0, 1);
+    m_reg_usr_layout->addWidget(m_reg_usr_passwd_label, 1, 0);
+    m_reg_usr_layout->addWidget(m_reg_usr_passwd_editor, 1, 1);
+    m_reg_usr_layout->addWidget(m_reg_usr_combox, 2, 1);
+    m_main_layout->addLayout(m_reg_usr_layout);
+
+    m_btn_cancel            = new QPushButton;
+    m_btn_ok                = new QPushButton;
+    m_btn_layout            = new QHBoxLayout;
+    m_btn_cancel->setText(tr("cancel"));
+    m_btn_ok->setText(tr("ok"));
+    m_btn_layout->addWidget(m_btn_cancel);
+    m_btn_layout->addWidget(m_btn_ok);
+    m_main_layout->addLayout(m_btn_layout);
+
+    setLayout(m_main_layout);
+}
+
+ConnectServerLogin::~ConnectServerLogin()
+{
+
 }
