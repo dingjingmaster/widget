@@ -137,7 +137,7 @@ ConnectServerLogin::ConnectServerLogin(QString& remoteIP, QWidget *parent) : QWi
     m_reg_usr_layout->addWidget(m_reg_usr_passwd_label,     1, 0);
     m_reg_usr_layout->addWidget(m_reg_usr_passwd_editor,    1, 1);
     m_reg_usr_layout->addWidget(m_reg_usr_combox,           2, 1);
-    m_reg_usr_layout->setVerticalSpacing(20);
+    m_reg_usr_layout->setVerticalSpacing(12);
     m_main_layout->addLayout(m_reg_usr_layout);
 
     m_btn_cancel            = new QPushButton;
@@ -148,6 +148,7 @@ ConnectServerLogin::ConnectServerLogin(QString& remoteIP, QWidget *parent) : QWi
     m_btn_ok->setText(tr("ok"));
     m_btn_layout->addWidget(m_btn_cancel);
     m_btn_layout->addWidget(m_btn_ok);
+    m_main_layout->addSpacing(20);
     m_main_layout->addLayout(m_btn_layout);
 
     setLayout(m_main_layout);
