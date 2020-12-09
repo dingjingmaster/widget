@@ -2,12 +2,13 @@
 #define CONNECTSERVERDIALOG_H
 
 #include <QWidget>
+#include <QCheckBox>
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QListWidget>
 #include <QRadioButton>
-#include <QCheckBox>
 
 class QLabel;
 
@@ -21,6 +22,7 @@ public:
 signals:
 
 private:
+    float           m_widget_margin         = 24;
     QSize           m_widget_size           = QSize (424, 440);
     QVBoxLayout*    m_main_layout           = nullptr;
 
@@ -28,15 +30,15 @@ private:
     QSize           m_remote_type_size      = QSize (28, 24);
     QLabel*         m_remote_type_label     = nullptr;
     QComboBox*      m_remote_type_edit      = nullptr;
-    QHBoxLayout*    m_remote_layout         = nullptr;
-
     QLabel*         m_ip_label              = nullptr;
     QLineEdit*      m_ip_edit               = nullptr;
     QLabel*         m_port_label            = nullptr;
     QComboBox*      m_port_editor           = nullptr;
-    QHBoxLayout*    m_ip_port_layout        = nullptr;
+    QGridLayout*    m_remote_layout         = nullptr;
 
+    QSize           m_favorite_list_size    = QSize (376, 144);
     QLabel*         m_favorite_label        = nullptr;
+    QListWidget*    m_favorite_list         = nullptr;
     QVBoxLayout*    m_favorite_layout       = nullptr;
 
     QPushButton*    m_btn_add               = nullptr;
@@ -56,6 +58,7 @@ public:
 
 private:
     QSize           m_widget_size           = QSize (424, 394);
+    QSize           m_widget_size_little    = QSize (424, 250);
     QVBoxLayout*    m_main_layout           = nullptr;
 
     QLabel*         m_tip                   = nullptr;

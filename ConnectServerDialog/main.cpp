@@ -8,5 +8,9 @@ int main(int argc, char *argv[])
     QString ip = "127.0.0.1";
     ConnectServerLogin w(ip);
     w.show();
+
+    ConnectServerDialog b;
+    b.show();
+
     return a.exec();
 }
