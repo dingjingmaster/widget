@@ -57,6 +57,7 @@ public:
     ~ConnectServerLogin();
 
 private:
+    float           m_widget_margin         = 24;
     QSize           m_widget_size           = QSize (424, 394);
     QSize           m_widget_size_little    = QSize (424, 250);
     QVBoxLayout*    m_main_layout           = nullptr;

@@ -22,31 +22,32 @@ ConnectServerDialog::ConnectServerDialog(QWidget *parent) : QWidget(parent)
     m_port_editor           = new QComboBox;
     m_remote_layout         = new QGridLayout;
 
+    m_main_layout->addSpacing(12);
+
     m_ip_label->setText(tr("ip"));
     m_port_label->setText(tr("port"));
     m_remote_type_label->setText(tr("type"));
     m_main_layout->setMargin(m_widget_margin);
+    m_port_label->setMargin(6);
     m_remote_type_edit->setAutoCompletion(true);
+    m_ip_label->setFixedHeight(36);
+    m_ip_edit->setFixedHeight(36);
+    m_port_label->setFixedHeight(36);
+    m_port_editor->setFixedHeight(36);
+    m_remote_type_label->setFixedHeight(36);
+    m_remote_type_edit->setFixedHeight(36);
     m_remote_type_edit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-//    m_remote_type_edit->setFixedSize(326, 36);
 
     m_remote_layout->addWidget(m_remote_type_label, 0, 0, 1, 1);
     m_remote_layout->addWidget(m_remote_type_edit,  0, 1, 1, 3);
+    m_remote_layout->setVerticalSpacing(20);
     m_remote_layout->addWidget(m_ip_label,          1, 0, 1, 1);
     m_remote_layout->addWidget(m_ip_edit,           1, 1, 1, 1);
     m_remote_layout->addWidget(m_port_label,        1, 2, 1, 1);
     m_remote_layout->addWidget(m_port_editor,       1, 3, 1, 1);
 
-//    m_remote_layout->addWidget(m_remote_type_label);
-//    m_remote_layout->addWidget(m_remote_type_edit);
-//    m_main_layout->addLayout(m_remote_layout);
-
-//    m_ip_port_layout->addWidget(m_ip_label);
-//    m_ip_port_layout->addWidget(m_ip_edit);
-//    m_ip_port_layout->addWidget(m_port_label);
-//    m_ip_port_layout->addWidget(m_port_editor);
-
     m_main_layout->addLayout(m_remote_layout);
+    m_main_layout->addSpacing(28);
 
     m_favorite_label        = new QLabel;
     m_favorite_layout       = new QVBoxLayout;
@@ -62,6 +63,8 @@ ConnectServerDialog::ConnectServerDialog(QWidget *parent) : QWidget(parent)
     m_btn_del               = new QPushButton;
     m_btn_conn              = new QPushButton;
     m_btn_layout            = new QHBoxLayout;
+
+    m_main_layout->addSpacing(12);
 
     m_btn_add->setText(tr("add"));
     m_btn_del->setText(tr("delete"));
@@ -89,6 +92,8 @@ ConnectServerLogin::ConnectServerLogin(QString& remoteIP, QWidget *parent) : QWi
     setWindowIcon(QIcon::fromTheme("network-server"));
     setWindowTitle(tr("The login user"));
     m_main_layout = new QVBoxLayout(this);
+    m_main_layout->addSpacing(12);
+    m_main_layout->setMargin(m_widget_margin);
 
     m_tip                   = new QLabel;
     m_tip->setWordWrap(true);
@@ -108,7 +113,7 @@ ConnectServerLogin::ConnectServerLogin(QString& remoteIP, QWidget *parent) : QWi
     m_usr_btn_group->addWidget(m_usr_btn_usr);
     m_usr_layout->addWidget(m_usr_label);
     m_usr_layout->addLayout(m_usr_btn_group);
-    m_usr_label->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_usr_label->setAlignment (Qt::AlignTop | Qt::AlignLeft);
     m_usr_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_main_layout->addLayout(m_usr_layout);
 
@@ -122,11 +127,17 @@ ConnectServerLogin::ConnectServerLogin(QString& remoteIP, QWidget *parent) : QWi
     m_reg_usr_name_label->setText(tr("name"));
     m_reg_usr_passwd_label->setText(tr("password"));
     m_reg_usr_combox->setText(tr("Remember the password"));
-    m_reg_usr_layout->addWidget(m_reg_usr_name_label, 0, 0);
-    m_reg_usr_layout->addWidget(m_reg_usr_name_editor, 0, 1);
-    m_reg_usr_layout->addWidget(m_reg_usr_passwd_label, 1, 0);
-    m_reg_usr_layout->addWidget(m_reg_usr_passwd_editor, 1, 1);
-    m_reg_usr_layout->addWidget(m_reg_usr_combox, 2, 1);
+    m_reg_usr_name_label->setFixedHeight(36);
+    m_reg_usr_passwd_label->setFixedHeight(36);
+    m_reg_usr_name_editor->setFixedHeight(36);
+    m_reg_usr_passwd_editor->setFixedHeight(36);
+    m_reg_usr_combox->setFixedHeight(36);
+    m_reg_usr_layout->addWidget(m_reg_usr_name_label,       0, 0);
+    m_reg_usr_layout->addWidget(m_reg_usr_name_editor,      0, 1);
+    m_reg_usr_layout->addWidget(m_reg_usr_passwd_label,     1, 0);
+    m_reg_usr_layout->addWidget(m_reg_usr_passwd_editor,    1, 1);
+    m_reg_usr_layout->addWidget(m_reg_usr_combox,           2, 1);
+    m_reg_usr_layout->setVerticalSpacing(20);
     m_main_layout->addLayout(m_reg_usr_layout);
 
     m_btn_cancel            = new QPushButton;
